@@ -13,9 +13,9 @@ public class TP1 {
     public static Locale localeID = new Locale("id", "ID");
     public static DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, d MMMM y", localeID);
     public static Random random = new Random();
+    public static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
         System.out.println("=============================================================");
         System.out.println("\n  ____             _                 _____         _ _       \r\n" +
                 " |  _ \\           | |               |  __ \\       | (_)      \r\n" +
@@ -33,10 +33,10 @@ public class TP1 {
         stok = input.nextInt();
 
         System.out.print("Masukkan harga barang: ");
-        hargaBarang = input.nextInt();
+        hargaBarang = input.nextDouble();
 
         System.out.print("Masukkan saldo awal: ");
-        saldo = input.nextInt();
+        saldo = input.nextDouble();
 
         System.out.println("\nPilih menu");
         System.out.println("1. Penjual");
@@ -49,10 +49,10 @@ public class TP1 {
             int pilihanMenuAwal = input.nextInt();
             switch (pilihanMenuAwal){
                 case 1:
-                    menuPenjual(input);
+                    menuPenjual();
                     break;
                 case 2:
-                    menuPembeli(input);
+                    menuPembeli();
                     break;
                 case 3:
                     hariSelanjutnya();
@@ -67,7 +67,7 @@ public class TP1 {
         }
     }
 
-    public static void menuPenjual(Scanner input){
+    public static void menuPenjual(){
         System.out.println("\n===== MENU PENJUAL =====");
         System.out.println("1. Cek Stok");
         System.out.println("2. Cek Harga Barang");
@@ -97,6 +97,8 @@ public class TP1 {
                     double hargaBarangBaru = input.nextInt();
                     ubahHargaBarang(hargaBarangBaru);
                     break;
+                case 8:
+                    return;
                 default:
                     System.out.println("Pilihan tidak valid!");
                     break;
@@ -105,7 +107,7 @@ public class TP1 {
 
     }
 
-    public static void menuPembeli(Scanner input){
+    public static void menuPembeli(){
         System.out.println("\n===== MENU PEMBELI =====");
         System.out.println("1. Cek Saldo");
         System.out.println("2. Top Up Saldo");
@@ -130,6 +132,8 @@ public class TP1 {
                 case 3:
                     cekHargaBarang(hargaBarang);
                     break;
+                case 8:
+                    return;
                 default:
                     System.out.println("Pilihan tidak valid!");
                     break;
